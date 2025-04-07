@@ -10,7 +10,6 @@ import { GoogleAIFileManager } from '@google/generative-ai/server';
 import fs from 'node:fs/promises'; // Use promise-based fs
 import path from 'node:path';
 import os from 'node:os';
-import mime from 'mime-types';
 import { randomUUID } from 'node:crypto'; // For unique filenames
 
 const apiKey = process.env.GEMINI_API_KEY;
@@ -121,7 +120,7 @@ export async function POST(req: NextRequest) {
     await fs.writeFile(tempFilePath, fileBuffer);
     console.log(`Temporary file saved to: ${tempFilePath}`);
 
-    const mimeType = file.type || mime.lookup(tempFilePath) || 'application/octet-stream';
+    const mimeType = file.type || 'image/png';
 
     // 2. Upload the temporary file to Gemini
     const imagePart = await uploadToGemini(tempFilePath, mimeType);

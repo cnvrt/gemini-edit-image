@@ -6,7 +6,6 @@ import { GoogleAIFileManager } from '@google/generative-ai/server';
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import os from 'node:os';
-import mime from 'mime-types';
 import { randomUUID } from 'node:crypto';
 
 // --- API Key aur Client Initialization (Pehle jaisa) ---
@@ -83,8 +82,8 @@ export async function POST(req: NextRequest) {
     await fs.writeFile(tempFilePath2, fileBuffer2);
     console.log(`Temp file 2 saved to: ${tempFilePath2}`);
 
-    const mimeType1 = file1.type || mime.lookup(tempFilePath1) || 'application/octet-stream';
-    const mimeType2 = file2.type || mime.lookup(tempFilePath2) || 'application/octet-stream';
+    const mimeType1 = file1.type || 'image/png';
+    const mimeType2 = file2.type || 'image/png';
 
     // --- Upload both files to Gemini ---
     const imagePart1 = await uploadToGemini(tempFilePath1, mimeType1);
