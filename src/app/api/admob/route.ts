@@ -8,12 +8,12 @@ export async function GET(request: Request) {
     const my_json=[
         {
             APP_AD_ID:"ca-app-pub-3940256099942544~3347511713",
-            Banner_AD_UNIT_ID:"ca-app-pub-3940256099942544/6300978111",
+            BANNER_AD_UNIT_ID:"ca-app-pub-3940256099942544/6300978111",
             REWARDED_AD_UNIT_ID:"ca-app-pub-3940256099942544/5224354917"
         },
         {
             APP_AD_ID : process.env.APP_AD_ID,
-            Banner_AD_UNIT_ID : process.env.Banner_AD_UNIT_ID,
+            BANNER_AD_UNIT_ID : process.env.BANNER_AD_UNIT_ID,
             REWARDED_AD_UNIT_ID : process.env.REWARDED_AD_UNIT_ID
         }
     ];
