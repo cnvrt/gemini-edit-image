@@ -17,5 +17,5 @@ export async function GET(request: Request) {
             REWARDED_AD_UNIT_ID : process.env.REWARDED_AD_UNIT_ID
         }
     ];
-    return Response.json(my_json[real]);
+    return Response.json(my_json[real["real"]]);
 }
