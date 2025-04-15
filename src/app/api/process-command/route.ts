@@ -4,7 +4,7 @@ import { NextRequest, NextResponse } from 'next/server'; // Import NextRequest/N
 
 // --- Environment Variables and Constants ---
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY; // Store your API key in .env.local
-const MODEL_NAME = "gemini-pro"; // Use the appropriate model
+const MODEL_NAME = "gemini-2.0-flash"; // Use the appropriate model
 
 // --- Input Validation ---
 async function isValidRequest(request: NextRequest): Promise<{ valid: boolean; command?: string; error?: string }> {
