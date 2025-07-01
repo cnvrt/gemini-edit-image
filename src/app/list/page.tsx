@@ -42,7 +42,7 @@ export default function MoviePage() {
   };
 
   const fetchHashtags = async () => {
-    const res = await fetch('/api/movies/hashtags');
+    const res = await fetch('/api/hashtags');
     const data = await res.json();
     setAllTags(data);
   };
