@@ -4,12 +4,13 @@ import pool from '@/lib/db';
 
 // Ek specific movie ko ID se GET karne ke liye
 export async function GET(
-  req: NextRequest
+  req: NextRequest,
+  { params }: any
 ) {
   try {
-    const { searchParams } = new URL(req.url);
-    const id = Number(searchParams.get('id'));
-    // const id = params.id; // App router mein dynamic part 'params' se milta hai
+    // const { searchParams } = new URL(req.url);
+    // const id = Number(searchParams.get('id'));
+    const id = params.id; // App router mein dynamic part 'params' se milta hai
 
     if (!id || isNaN(Number(id))) {
       return NextResponse.json({ error: 'A valid movie ID is required.' }, { status: 400 });
@@ -31,12 +32,13 @@ export async function GET(
 
 // Ek specific movie ko ID se DELETE karne ke liye
 export async function DELETE(
-  req: NextRequest
+  req: NextRequest,
+  { params }: any
 ) {
   try {
-    // const id = params.id;
-    const { searchParams } = new URL(req.url);
-    const id = Number(searchParams.get('id'));
+    const id = params.id;
+    // const { searchParams } = new URL(req.url);
+    // const id = Number(searchParams.get('id'));
 
     if (!id || isNaN(Number(id))) {
       return NextResponse.json({ error: 'A valid movie ID is required.' }, { status: 400 });
